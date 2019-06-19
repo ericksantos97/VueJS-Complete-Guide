@@ -1,0 +1,19 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <!-- Utilizando v-bind e v-on para realizar o two-way-databinding -->
+    <input type="text" v-bind:value="titulo" v-on:input="titulo = $event.target.value">
+    <hr>
+    <!-- O que é alterado na view template, é alterado na VueInstance e vice-versa -->
+    <input type="text" v-model="titulo">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Trabalhando com Vue JS'
+        }
+    })
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <title>Cidades e Estados</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Cidades e Estados!</h1>
+        <select @change='getEstados($event)' placeholder="Selecione o Estado">
+            <option value="" disabled selected>Escolha o Estado</option>
+            <option v-for="(estado, index) in estados" :value="index">{{estado.nome}}</option>
+        </select>
+
+        <ul v-if="cidades != '' " >
+            <li v-for="cidade in cidades">{{cidade}}</li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                cidades: '',
+                estados: [
+                   {
+                       nome: 'Ceará',
+                       cidades: ['Fortaleza', 'Juazeiro', 'Canindé']
+                    },
+                    {
+                        nome: 'São Paulo',
+                        cidades: ['Santos', 'São Paulo', 'Ubatuba']
+                    }
+               ],
+            },
+            computed: {
+                listaEstados() {
+                    return this.estados.map(e => e.nome)
+                }
+            },
+            methods: {
+                getEstados(event) {
+                    let indice = event.target.value 
+                    this.cidades = this.estados[indice].cidades
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

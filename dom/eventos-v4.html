@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <button v-on:click="somar(5, $event)">Somar</button>
+    <p v-on:mousemove="atualizarPosicao">Mouse: {{ x }} e {{ y }}<br/>
+        <!-- Utilizando os modificadores de eventos para gerar o stop. -->
+        
+        <span v-on:mousemove="parar">PARAR AQUI COM FUNÇÃO!!!</span><br/>
+        <span v-on:mousemove.stop="">PARAR AQUI COM STOP!!!</span><br/>
+        <span v-on:mousemove.stop.prevent="">PARAR AQUI COM STOP E PREVENT!!!</span>
+    </p>
+    <a v-on:click.prevent="" href="http://www.google.com.br">Google</a>&nbsp;
+    <a v-on:click="naoNavegar" href="http://www.google.com.br">Google</a>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar: function(param, event) {
+                this.contador += param
+            },
+            atualizarPosicao: function(event) {
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            parar: function(event) {
+                event.stopPropagation();
+            },
+            naoNavegar: function(event) {
+                event.preventDefault();
+            }
+        },
+    })
+</script>

@@ -1,0 +1,19 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <input v-on:keyup.enter="exibirAlerta" type="text">
+    <hr>
+    <input v-on:keyup.enter.alt="exibirAlerta" type="text">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+           exibirAlerta: function() {
+               alert('Estou te alertando!');
+           }
+        },
+    })
+</script>
