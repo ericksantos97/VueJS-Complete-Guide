@@ -14,7 +14,7 @@
     <ul>
         <li v-for="pessoa in pessoas">{{ pessoa.nome }}
             <div>
-                <li v-for="(valor, chave) in pessoa">{{ chave }} = {{ valor }}</li>
+                <li v-for="(valor, chave, index) in pessoa">{{ chave }} = {{ valor }} {{ index + 1 }}</li>
             </div>
         </li>
     </ul>

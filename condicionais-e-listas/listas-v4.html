@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <ul>
+        <!-- Key importante para alertar o Vue aonde esta armazenado o dado da sua aplicacao, caso ocorra mudanças -->
+        <li v-for="(cor, i) in cores" :key="cor">{{ i + 1 }}) - {{ cor }}</li>
+    </ul>
+    <button @click="cores.push('branca')">Adicionar</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'azul', 'verde', 'amarelo'],
+        }
+    })
+</script>
