@@ -1,3 +1,3 @@
 # VueJS-Complete-Guide
 
-<h1>Guia com exemplos e projetos relacionados a VueJS</h1>
+<h4>Guia com exemplos e projetos relacionados a VueJS</h4>
