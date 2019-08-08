@@ -11,6 +11,7 @@ export default {
             } else {
                 state.stocks.push({
                     id: stockId,
+                    
                     quantity: quantity
                 })
             }
